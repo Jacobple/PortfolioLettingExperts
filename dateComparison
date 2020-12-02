@@ -1,0 +1,30 @@
+var object1 = inputData.object1;
+var object2 = inputData.object2;
+let result, option;
+  var o1 = [];
+  var o2 = [];
+  var ob1 = object1.split("/");
+  o2[0] = parseInt(ob1[0]);
+  o1[1] = parseInt(ob1[1]);
+  o1[2] = parseInt(ob1[2]);
+  var ob2 = object2.split("/");
+  o2[0] = parseInt(ob2[0]);
+  o2[1] = parseInt(ob2[1]);
+  o2[2] = parseInt(ob2[2]);
+  if (o1[2] < o2[2]) {
+    result = true;
+    option = 1;
+  }
+  else if (o1[1] < o2[1]) {
+    result = true;
+    option = 2;
+  }
+  else if (o1[0] < o2[0]) {
+    result = true;
+    option = 3;
+  }
+  else {
+    result = false;
+    option = 4;
+  }
+return {result, option}
