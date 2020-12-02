@@ -1,7 +1,7 @@
-var startDate = inputData.startDate;
+var object1 = inputData.startDate;
 //input in the format of 2020-08-18T13:44:44.764Z
-var n = startDate.search("T");
-startDate = startDate.slice(0, n);
-var elements = startDate.split("-");
+var n = object1.search("T");
+object1 = object1.slice(0, n);
+var elements = object1.split("-");
 var newDate = elements[1] + "/" + elements[2] + "/" + elements[0];
-return {startDate, newDate}
+return {object1, newDate}
