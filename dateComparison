@@ -4,7 +4,7 @@ let result, option;
   var o1 = [];
   var o2 = [];
   var ob1 = object1.split("/");
-  o2[0] = parseInt(ob1[0]);
+  o1[0] = parseInt(ob1[0]);
   o1[1] = parseInt(ob1[1]);
   o1[2] = parseInt(ob1[2]);
   var ob2 = object2.split("/");
