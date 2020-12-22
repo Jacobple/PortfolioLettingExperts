@@ -1,0 +1,2 @@
+var newDate = new Date();
+newTime.setDate(currentTime.getDate()+14);
