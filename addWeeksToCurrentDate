@@ -1,5 +1,5 @@
-var LI = inputData.lastInspection;
-var dateVars = LI.split("/");
+var object1 = inputData.lastInspection;
+var dateVars = object1.split("/");
 var newMonth = (parseInt(dateVars[1])) + 6;
 var newYear = parseInt(dateVars[2]);
 if (newMonth >= 13) {
