@@ -1,2 +1,11 @@
-var newDate = new Date();
-newTime.setDate(currentTime.getDate()+14);
+var LI = inputData.lastInspection;
+var dateVars = LI.split("/");
+var newMonth = (parseInt(dateVars[1])) + 6;
+var newYear = parseInt(dateVars[2]);
+if (newMonth >= 13) {
+  newMonth = newMonth - 12;
+  newYear = newYear + 1;
+}
+var newDate = newMonth + "/" + dateVars[0] + "/" + newYear;
+var newDateCompare = dateVars[0] + "/" + newMonth + "/" + newYear;
+return {newDate, newDateCompare}
