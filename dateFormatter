@@ -1,4 +1,4 @@
-var object1 = inputData.startDate;
+var object1 = inputData.object1;
 //input in the format of 2020-08-18T13:44:44.764Z
 var n = object1.search("T");
 object1 = object1.slice(0, n);
