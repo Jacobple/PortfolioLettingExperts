@@ -1,4 +1,4 @@
-var object1 = inputData.lastInspection;
+var object1 = inputData.object1;
 var dateVars = object1.split("/");
 var newMonth = (parseInt(dateVars[1])) + 6;
 var newYear = parseInt(dateVars[2]);
