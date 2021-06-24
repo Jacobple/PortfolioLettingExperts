@@ -1,8 +1,7 @@
 var name = inputData.propName;
 var source = inputData.propSource;
-let email;
+let email, nameEmail;
 var nameSplit = name.split(" ");
-var nameEmail;
 for (var i = 0; i < nameSplit.length; i++) {
   if (i == 0) {
     nameEmail = nameSplit[i];
