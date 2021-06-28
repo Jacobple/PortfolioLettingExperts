@@ -1,3 +1,4 @@
+var phone = inputData.phone;
 if (phone !=null && phone != ""){
   if(phone) { 
     if(phone.match(/^(?:0)(?:\d){9,10}$/g)) { // Check if the phone Starts with a 0 
