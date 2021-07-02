@@ -1,5 +1,14 @@
 var propertyreference = inputData.propertyreference;
 let propertyTag;
+var propIst = inputData.propertyInterest;
+var elements = propIst.split(",");
+for (var i = 0; i < elements.length; i++) {
+  if (i == 0) {
+    propIst = elements[i];    
+  } else if (i != (elements.length - 2)){
+    propIst = propIst + ", " + elements[i];  
+  }
+}
 var name = inputData.name;
 var phone = inputData.phone;
 var address = inputData.address;
@@ -28,6 +37,7 @@ if (splitText.length == 1) {
     lastname = name.slice(name.search(" "), name.length);  
   }
 } 
+  
 // Check if the phone is available. If yes, add +44
 if(phone) { 
   if(phone.match(/^(?:0)(?:\d){9,10}$/g)) { // Check if the phone Starts with a 0 
@@ -52,18 +62,16 @@ zipcode = fulladdress_unescape.substr(n+1);
 var virtualTour = propertyreference.includes("-")
 let propertyAttributes, propertyVirtualId;
 if(propertyreference) {
+  let n = propertyreference.search("_");
   if (virtualTour) {
-    var ref = propertyreference.substring(6, propertyreference.length);
-    var holder = ref.split("-");
-    propertyTag = holder[0];
-    if (holder.Length > 1){
-      var propVT = holder[1] + "-" + holder[2];
-      propertyVirtualId = "https://tim-portfoliolettingexperts-co-uk.vr-360-tour.com/e/" + propVT + "/e";
-    } else {
-      propertyVirtualId = "https://tim-portfoliolettingexperts-co-uk.vr-360-tour.com/e/" + holder[1] + "/e";
-    }
-  }  else {
-    propertyTag = propertyreference.substring(6, propertyreference.length);
+    var ref = propertyreference.slice((n + 1), propertyreference.length);
+    n = ref.search("-");
+    var propVT = ref.slice(n, ref.length);
+    propertyVirtualId = 
+"https://tim-portfoliolettingexperts-co-uk.vr-360-tour.com/e/" + propVT + "/e";
+    propertyTag = ref.slice(0, n);  
+  } else {
+    propertyTag = propertyreference.slice((n + 1), propertyreference.length);  
   }
 } else {
   propertyTag = "";
@@ -71,7 +79,7 @@ if(propertyreference) {
 }
 var length = propertyreference.length;
 if (virtualTour) {
-  return {title:title, firstname:firstname, lastname:lastname, phone: finalphone, addressline: addressline, zipcode: zipcode, propertyTag:propertyTag,propertyVirtualId: propertyVirtualId, length}
+  return {title:title, firstname:firstname, lastname:lastname, phone: finalphone, addressline: addressline, zipcode: zipcode, propertyTag:propertyTag,propertyVirtualId: propertyVirtualId, length, propIst, n}
 } else {
-  return {title:title, firstname:firstname, lastname:lastname, phone: finalphone, addressline: addressline, zipcode: zipcode, propertyTag:propertyTag, length}
+  return {title:title, firstname:firstname, lastname:lastname, phone: finalphone, addressline: addressline, zipcode: zipcode, propertyTag:propertyTag, length, propIst}
 }
