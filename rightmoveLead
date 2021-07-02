@@ -1,18 +1,12 @@
 var propertyreference = inputData.propertyreference;
 let propertyTag;
-
-var ref = propertyreference.substring(6, propertyreference.length);
-var holder = ref.split("-");
-propertyTag = holder[0];
 var name = inputData.name;
 var phone = inputData.phone;
 var address = inputData.address;
-
 //Formats the name
 var splitText = name.split(" ");
 var words = splitText.length;
 let title, firstname, lastname;
-
 //Example input: 79660_6908-V8sBcw_hB9o
 if (splitText.length == 1) {
   firstname = splitText[0];
@@ -34,7 +28,6 @@ if (splitText.length == 1) {
     lastname = name.slice(name.search(" "), name.length);  
   }
 } 
-  
 // Check if the phone is available. If yes, add +44
 if(phone) { 
   if(phone.match(/^(?:0)(?:\d){9,10}$/g)) { // Check if the phone Starts with a 0 
@@ -55,7 +48,6 @@ fulladdress_unescape = unescape(address);
 n = fulladdress_unescape.lastIndexOf(",");
 addressline = fulladdress_unescape.substr(0,n);
 zipcode = fulladdress_unescape.substr(n+1);
-
 //get property tag and property virtual id
 var virtualTour = propertyreference.includes("-")
 let propertyAttributes, propertyVirtualId;
@@ -77,7 +69,6 @@ if(propertyreference) {
   propertyTag = "";
   propertyVirtualId = "";
 }
-
 var length = propertyreference.length;
 if (virtualTour) {
   return {title:title, firstname:firstname, lastname:lastname, phone: finalphone, addressline: addressline, zipcode: zipcode, propertyTag:propertyTag,propertyVirtualId: propertyVirtualId, length}
