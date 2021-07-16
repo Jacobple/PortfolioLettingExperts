@@ -1,4 +1,4 @@
-let fail = false;
+let tag, fail = false;
 var buyer = splitter(inputData.buyerType, "-");
 var purchaseMethod = firstLetter(inputData.purchaseMethod);
 var other = firstLetter(inputData.otherText);
@@ -14,21 +14,30 @@ if (purchaseMethod != "Cash") {
     if (mip.includes("-")) {
       mip = splitter(mip, "-");
     }
+    if (mip.includes("No")) {
+      fail = "MIP";      
+    }
   }
-} else {
   if (mip != "" && mip != null) {
     if (purchaseMethod == "Mortgage" && (mip.includes("Yes"))) {
       fail = false;
     } else {
-      fail = true;
+      fail = "MIP";
+    }
+    var broker = inputData.broker;
+    
+    if (broker % 2 == 0) {
+      tag = "MBR Peter Morgan"; // Peter Morgan
+    } else {
+      tag = "MBR Peter Morgan"; // Adriana
     }
   }
 }
-return {fail, buyer, purchaseMethod, mip, other, mipR, ac, ci}
+return {fail, tag, buyer, purchaseMethod, mip, other, mipR, ac, ci}
 function splitter(text, icon) {
+  var newText = null;
   if (text.includes(icon)) {
-    var elements = text.split(icon);
-    var newText = null;
+    var elements = text.split(icon);    
     for (var i = 0; i < elements.length; i++) {
       if (newText == "" || newText == null) {
         newText = firstLetter(elements[i]);
@@ -36,6 +45,8 @@ function splitter(text, icon) {
         newText = newText + " " + elements[i];
       }
     }
+  } else {
+    newText = firstLetter(text);
   }
   return newText;
 }
