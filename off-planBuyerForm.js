@@ -24,8 +24,7 @@ if (purchaseMethod != "Cash") {
     } else {
       fail = "MIP";
     }
-    var broker = inputData.broker;
-    
+    var broker = inputData.broker;    
     if (broker % 2 == 0) {
       tag = "MBR Peter Morgan"; // Peter Morgan
     } else {
