@@ -26,9 +26,9 @@ if (purchaseMethod != "Cash") {
     }
     var broker = inputData.broker;    
     if (broker % 2 == 0) {
-      tag = "MBR Peter Morgan"; // Peter Morgan
+      tag = "MBR Adriana"; // Adriana
     } else {
-      tag = "MBR Peter Morgan"; // Adriana
+      tag = "MBR Peter Morgan"; // Peter Morgan
     }
   }
 }
